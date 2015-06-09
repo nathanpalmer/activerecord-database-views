@@ -30,7 +30,8 @@ module ActiveRecord::DatabaseViews
       name = view.name
 
       begin
-        view.load! and views.delete(view)
+        view.load!
+        views.delete(view)
         puts "#{name}: Loaded"
       rescue ActiveRecord::StatementInvalid => exception
         ActiveRecord::Base.connection.rollback_db_transaction
