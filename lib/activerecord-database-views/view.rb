@@ -23,7 +23,7 @@ module ActiveRecord::DatabaseViews
     private
 
     def full_path
-      Rails.root.join(path)
+      File.expand_path(path)
     end
 
     def sql
